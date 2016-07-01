@@ -20,3 +20,15 @@ Now React Native only provide some system keyboards, but not provide function fo
 In here I also not realize really custom keyboard, but it can meet our requirements.
 
 Actually I througt realize `custom TextField` to weak up the custom keyboard, by this way to touch our purpose.
+
+## ToDo
+natvie 和 RN端通信
+
+native and RN communication
+
+
+## Contact me
+
+Email:newfun.email@qq.com
+
+--newfun.上海.2016年7月1日
