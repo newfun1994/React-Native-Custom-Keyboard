@@ -1,9 +1,10 @@
 # React-Native-Custom-Keyboard
 
-
 Custom Keyboard in React Native
 
 React Native 自定义键盘
+
+![gif](demo.gif)
 
 ## 中文
 
