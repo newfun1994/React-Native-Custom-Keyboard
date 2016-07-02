@@ -7,15 +7,29 @@
 //
 
 #import "RCTTextInputViewManager.h"
-#import "TextInputView.h"
 
 @implementation RCTTextInputViewManager
 
 RCT_EXPORT_MODULE()
 
+RCT_EXPORT_VIEW_PROPERTY(onStringChange, RCTBubblingEventBlock)
+
+
 - (UIView *)view
 {
-  return [[TextInputView alloc] init];
+  TextInputView* textInputView = [[TextInputView alloc] init];
+  textInputView.delegate = self;
+  return textInputView;
+}
+
+-(void)getInputString:(NSString *)string textInputView:(TextInputView *)textInputView {
+  
+  if (!textInputView.onStringChange) {
+    return;
+  }
+  
+  textInputView.onStringChange(@{@"inputSting":string});
+  
 }
 
 @end

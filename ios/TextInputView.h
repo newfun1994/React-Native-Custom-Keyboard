@@ -8,9 +8,26 @@
 
 #import <UIKit/UIKit.h>
 
+#import "RCTComponent.h"
+
+
+@protocol TextInputViewDelegate;
+
+
 
 @interface TextInputView : UIView
 
-@property (nonatomic, strong) UITextField *idCardNumTextField;
+@property (nonatomic, strong) UITextField *textField;
+@property (nonatomic, weak) id<TextInputViewDelegate> delegate;
+@property (nonatomic, copy) RCTBubblingEventBlock onStringChange;
+
+
+@end
+
+
+
+@protocol TextInputViewDelegate
+
+- (void)getInputString:(NSString*)string textInputView:(TextInputView*)textInputView;
 
 @end

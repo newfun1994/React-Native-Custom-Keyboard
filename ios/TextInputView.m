@@ -21,14 +21,14 @@
 
 
 - (void)drawRect:(CGRect)rect {
-  _idCardNumTextField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, rect.size.width, rect.size.height)];
-  _idCardNumTextField.delegate = self;
-  [self addSubview:_idCardNumTextField];
+  _textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, rect.size.width, rect.size.height)];
+  _textField.delegate = self;
+  [self addSubview:_textField];
   
   
   RNCustomNumKeyboard *keyboardView = [[NSBundle mainBundle] loadNibNamed:@"RNCustomNumKeyboard" owner:nil options:nil][0];
   keyboardView.delegate = self;
-  _idCardNumTextField.inputView = keyboardView;
+  _textField.inputView = keyboardView;
 }
 
 - (instancetype)init {
@@ -42,11 +42,13 @@
 
 
 - (void)numberButtonClicked:(NSInteger)number {
-  [_idCardNumTextField insertText:[@(number) stringValue]];
+  [_textField insertText:[@(number) stringValue]];
+  [_delegate getInputString:_textField.text textInputView:self];
 }
 
 - (void)delectButtonClicked {
-  [_idCardNumTextField deleteBackward];
+  [_textField deleteBackward];
+  [_delegate getInputString:_textField.text textInputView:self];
 }
 
 - (void)hiddenButtonClicked {
