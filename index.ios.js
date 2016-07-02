@@ -15,13 +15,20 @@ import {
 import TextInputView from './TextInputView';
 
 class RNCustomKeyboard extends Component {
+  onInputChange(event){
+    console.log(event.nativeEvent.inputSting);
+  }
   render() {
+    _me = this;
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
           React Native Custom Keyboard!
         </Text>
-        <TextInputView style={styles.inputView}/>
+        <TextInputView 
+          style={styles.inputView}
+          getInputString = {_me.onInputChange}
+          />
       </View>
     );
   }

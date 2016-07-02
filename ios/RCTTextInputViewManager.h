@@ -13,5 +13,4 @@
 @interface RCTTextInputViewManager : RCTViewManager<TextInputViewDelegate>
 
 
-
 @end

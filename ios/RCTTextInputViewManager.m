@@ -12,7 +12,7 @@
 
 RCT_EXPORT_MODULE()
 
-RCT_EXPORT_VIEW_PROPERTY(onStringChange, RCTBubblingEventBlock)
+RCT_EXPORT_VIEW_PROPERTY(onInputChange, RCTBubblingEventBlock)
 
 
 - (UIView *)view
@@ -24,11 +24,11 @@ RCT_EXPORT_VIEW_PROPERTY(onStringChange, RCTBubblingEventBlock)
 
 -(void)getInputString:(NSString *)string textInputView:(TextInputView *)textInputView {
   
-  if (!textInputView.onStringChange) {
+  if (!textInputView.onInputChange) {
     return;
   }
   
-  textInputView.onStringChange(@{@"inputSting":string});
+  textInputView.onInputChange(@{@"inputSting":string});
   
 }
 

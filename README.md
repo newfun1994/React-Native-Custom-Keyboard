@@ -23,9 +23,7 @@ In here I also not realize really custom keyboard, but it can meet our requireme
 Actually I througt realize `custom TextField` to weak up the custom keyboard, by this way to touch our purpose.
 
 ## ToDo
-natvie 和 RN端通信
 
-native and RN communication
 
 
 ## Contact me

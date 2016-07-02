@@ -9,21 +9,18 @@
 #import <UIKit/UIKit.h>
 
 #import "RCTComponent.h"
+#import "UIView+React.h"
 
 
 @protocol TextInputViewDelegate;
-
-
 
 @interface TextInputView : UIView
 
 @property (nonatomic, strong) UITextField *textField;
 @property (nonatomic, weak) id<TextInputViewDelegate> delegate;
-@property (nonatomic, copy) RCTBubblingEventBlock onStringChange;
-
+@property (nonatomic, copy) RCTBubblingEventBlock onInputChange;
 
 @end
-
 
 
 @protocol TextInputViewDelegate
