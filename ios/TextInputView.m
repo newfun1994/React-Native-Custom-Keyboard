@@ -24,7 +24,7 @@
   _textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, rect.size.width, rect.size.height)];
   _textField.delegate = self;
   [self addSubview:_textField];
-  
+  [_textField addTarget:self action:@selector(textFielddidChanged) forControlEvents:UIControlEventEditingChanged];
   
   RNCustomNumKeyboard *keyboardView = [[NSBundle mainBundle] loadNibNamed:@"RNCustomNumKeyboard" owner:nil options:nil][0];
   keyboardView.delegate = self;
@@ -39,16 +39,17 @@
   return self;
 }
 
+- (void)textFielddidChanged{
+  [_delegate getInputString:_textField.text textInputView:self];
+}
 
 
 - (void)numberButtonClicked:(NSInteger)number {
   [_textField insertText:[@(number) stringValue]];
-  [_delegate getInputString:_textField.text textInputView:self];
 }
 
 - (void)delectButtonClicked {
   [_textField deleteBackward];
-  [_delegate getInputString:_textField.text textInputView:self];
 }
 
 - (void)hiddenButtonClicked {
