@@ -1,31 +1,24 @@
-// var { requireNativeComponent } = require('react-native');
-
-// // requireNativeComponent 自动把这个组件提供给 "RCTMapManager"
-// module.exports = requireNativeComponent('RCTTextInputView', null);
-
 import React from 'react';
-import { requireNativeComponent } from 'react-native';
+import {requireNativeComponent, NativeModules} from 'react-native';
 
-class TextInputView extends React.Component {
+var TextInputViewManager = NativeModules.TextInputViewManager;
+class textInputView extends React.Component {
 
-  // onChange(event) {
-  //   if (!this.props.getPassword) {
-  //     return;
-  //   }
-  //   this.props.getPassword(event.nativeEvent.passwordSrting);
-  // }
+	render() {
+		return <RCTtextInputView
+			{...this.props}
+			onInputChange={this.props.getInputString}
+		/>;
+	}
+}
+//转换参数类型
+textInputView.propTypes = {
+	onInputChange: React.PropTypes.func
+};
 
-  render() {
-    return <RCTtextInputView 
-            {...this.props}
-            onInputChange={this.props.getInputString}
-          />;
-  }
+function deleteContent(reactTag) {
+	TextInputViewManager.deleteContents(reactTag);
 }
 
-//转换参数类型
-TextInputView.propTypes = {
-  onInputChange: React.PropTypes.func,
-};
-var RCTtextInputView = requireNativeComponent('RCTTextInputView', TextInputView);
-module.exports = TextInputView;
+var RCTtextInputView = requireNativeComponent('RCTTextInputView', textInputView);
+module.exports = {textInputView,deleteContent};

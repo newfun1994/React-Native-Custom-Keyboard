@@ -8,9 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "RCTViewManager.h"
-#import "TextInputView.h"
 
-@interface RCTTextInputViewManager : RCTViewManager<TextInputViewDelegate>
 
+@interface RCTTextInputViewManager : RCTViewManager
 
 @end

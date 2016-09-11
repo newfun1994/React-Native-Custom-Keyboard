@@ -16,15 +16,13 @@
 
 @interface TextInputView : UIView
 
-@property (nonatomic, strong) UITextField *textField;
 @property (nonatomic, weak) id<TextInputViewDelegate> delegate;
 @property (nonatomic, copy) RCTBubblingEventBlock onInputChange;
 
+- (void)deleteContent;
+
 @end
 
-
 @protocol TextInputViewDelegate
-
 - (void)getInputString:(NSString*)string textInputView:(TextInputView*)textInputView;
-
 @end

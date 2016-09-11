@@ -14,6 +14,8 @@ React Native 自定义键盘
 
 原理是实现一个自定义的`TextField`，通过自定义的`TextField`来调起自定义键盘，间接的达到目的
 
+2016.9.11 暴露自定义视图的方法
+
 ## English
 
 Now React Native only provide some system keyboards, but not provide function for custom keyboard.
@@ -22,7 +24,7 @@ In here I also not realize really custom keyboard, but it can meet our requireme
 
 Actually I througt realize `custom TextField` to weak up the custom keyboard, by this way to touch our purpose.
 
-## ToDo
+2016.9.11 export custom view method
 
 
 

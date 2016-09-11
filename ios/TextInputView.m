@@ -12,6 +12,8 @@
 
 @interface TextInputView()<UITextFieldDelegate,RNCustomNumKeyboardDelegate>
 
+@property (nonatomic, strong) UITextField *textField;
+
 @end
 
 @implementation TextInputView
@@ -54,6 +56,10 @@
 
 - (void)hiddenButtonClicked {
   [self endEditing:YES];
+}
+
+- (void)deleteContent {
+  _textField.text = @"";
 }
 
 @end
